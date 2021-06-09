@@ -1,9 +1,21 @@
+import { urlencoded } from "body-parser";
 import express from "express";
+import morgan from "morgan";
+import globalRouter from "./routers/globalRouter";
+import userRouter from "./routers/userRouter";
+import videoRouter from "./routers/videoRouter";
 
 const app = express();
+const logger = morgan("dev");
 
-const PORT = 9800;
+app.set("view engine", "pug");
+app.set("views", process.cwd() + "/src/views")
 
-const handleListening = () => console.log(`Server listening on port http://localhost:${PORT}`);
+app.use(logger);
+app.use(express.urlencoded({ extended: true }));
 
-app.listen(PORT, handleListening);
+app.use("/", globalRouter);
+app.use("/videos", videoRouter);
+app.use("/users", userRouter);
+
+export default app;

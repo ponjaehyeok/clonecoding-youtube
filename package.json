@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "description": "The best way to watch a videos.",
   "scripts": {
-    "dev": "nodemon --exec babel-node src/server.js"
+    "dev": "nodemon --exec babel-node src/init.js"
   },
   "repository": {
     "type": "git",
@@ -16,7 +16,10 @@
   },
   "homepage": "https://github.com/ponjaehyeok/clonecoding-youtube#readme",
   "dependencies": {
-    "express": "^4.17.1"
+    "express": "^4.17.1",
+    "mongoose": "^5.12.12",
+    "morgan": "^1.10.0",
+    "pug": "^3.0.2"
   },
   "devDependencies": {
     "@babel/core": "^7.13.16",
